@@ -1,0 +1,24 @@
+.wrapper{
+    margin:auto;
+    width:50%;
+    border: 2px solid black;
+    text-align: center;
+}
+
+.text{
+    width:400px;
+    height:150px;
+    resize: none;
+}
+
+#generate{
+    height: 30px;
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+textarea{
+    text-align: center;
+    font-size: 15px;
+
+}
