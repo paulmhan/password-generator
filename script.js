@@ -30,15 +30,41 @@ const letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m"
 
 
 // prompt user to choose length of password, between 8-128 characters once generate button is clicked
-document.getElementById("generate").addEventListener("click", promptProperties)
+document.getElementById("generate").addEventListener("click", confirmProperties);
+// document.getElementById("generate").addEventListener("click", generatePassword);
 
-function promptProperties() {
+function confirmProperties() {
+    let length = prompt("How many characters would you like your password to be? Must be between 8-128 characters.");
+    newLength = parseInt(length,10);
     let numericCharacters = confirm("Would you like to numeric characters in your password?");
     let lowerCaseCharacters = confirm("Would you like lowercase characters in your password?");
-    let upperCaseCharacters = confirm("Would you like uppercase characters in your password?")
+    let upperCaseCharacters = confirm("Would you like uppercase characters in your password?");
+    if (numericCharacters == false && lowerCaseCharacters == false && upperCaseCharacters == false){
+        alert("You must select as least one character type!");
+    }
+    if (newLength < 8 || newLength > 128){
+        alert("The password length must be between 8-128 characters.");
+    }
 }
 
-//
+
+
+// function generatePassword(){
+//     for(i = 0; i <= length; i++){
+//         if()
+//     }
+// }
+
+
+
+
+
+
+
+
+
+
+//there are nine different outcomes that are possible
 
 
 
