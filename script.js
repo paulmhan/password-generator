@@ -33,24 +33,30 @@ const letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m"
 document.getElementById("generate").addEventListener("click", confirmProperties);
 // document.getElementById("generate").addEventListener("click", generatePassword);
 
+let numChar;
+
+
 function confirmProperties() {
-    let length = prompt("How many characters would you like your password to be? Must be between 8-128 characters.");
-    newLength = parseInt(length,10);
+    numChar = prompt("How many characters would you like your password to be? Must be between 8-128 characters.");
+    charLength = parseInt(numChar,10);
+    if (charLength < 8 || charLength > 128){
+        alert("The password length must be between 8-128 characters.");
+        return confirmProperties();
+    }
     let numericCharacters = confirm("Would you like to numeric characters in your password?");
     let lowerCaseCharacters = confirm("Would you like lowercase characters in your password?");
     let upperCaseCharacters = confirm("Would you like uppercase characters in your password?");
     if (numericCharacters == false && lowerCaseCharacters == false && upperCaseCharacters == false){
         alert("You must select as least one character type!");
-    }
-    if (newLength < 8 || newLength > 128){
-        alert("The password length must be between 8-128 characters.");
+        return confirmProperties();
+
     }
 }
 
 
 
 // function generatePassword(){
-//     for(i = 0; i <= length; i++){
+//     for(i = 0; i <= charLength; i++){
 //         if()
 //     }
 // }
