@@ -26,39 +26,56 @@
 
 //establish variables
 const numbers = [0, 1, 2, 3, 4, 5, 6, 7 ,8 ,9]
-const letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-let numChar;
+const lowLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+const upLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 
 
 // prompt user to choose length of password, between 8-128 characters once generate button is clicked
-document.getElementById("generate").addEventListener("click", confirmProperties);
+
 document.getElementById("generate").addEventListener("click", generatePassword);
 
+//write function here
 
-
-function confirmProperties() {
-    numChar = prompt("How many characters would you like your password to be? Must be between 8-128 characters.");
+function generatePassword() {
+numChar = prompt("How many characters would you like your password to be? Must be between 8-128 characters.");
     charLength = parseInt(numChar,10);
     if (charLength < 8 || charLength > 128){
         alert("The password length must be between 8-128 characters.");
-        return confirmProperties();
+        return generatePassword();
     }
     let numericCharacters = confirm("Would you like to numeric characters in your password?");
     let lowerCaseCharacters = confirm("Would you like lowercase characters in your password?");
     let upperCaseCharacters = confirm("Would you like uppercase characters in your password?");
-    if (numericCharacters == false && lowerCaseCharacters == false && upperCaseCharacters == false){
+    if (numericCharacters === false && lowerCaseCharacters === false && upperCaseCharacters === false){
         alert("You must select as least one character type!");
-        return confirmProperties();
-
+        return generatePassword();
     }
-}
-
-
-
-function generatePassword(){
     for(i = 0; i <= charLength; i++){
-        if()
+        if (numericCharacters === true && lowerCaseCharacters === true && upperCaseCharacters === true){
+            // then randomly generate from all three
+        }
+        if (numericCharacters === true && lowerCaseCharacters === true && upperCaseCharacters === false){
+            // then only from those two
+        }
+        if (numericCharacters === true && lowerCaseCharacters === false && upperCaseCharacters === false){
+            //only one
+        }
+        if (numericCharacters === false && lowerCaseCharacters === true && upperCaseCharacters === true){
+            // those two
+        }
+        if (numericCharacters === false && lowerCaseCharacters === false && upperCaseCharacters === true){
+            // only one
+        }
+        if (numericCharacters === false && lowerCaseCharacters === true && upperCaseCharacters === false){
+            // only one
+        }
+        if(numericCharacters === true && lowerCaseCharacters === false && upperCaseCharacters === true){
+            //only two
+        }
+
+
     }
+    
 }
 
 
@@ -69,18 +86,6 @@ function generatePassword(){
 
 
 
-
-//there are nine different outcomes that are possible
-
-
-
-
-
-
-//prompt user if they want numbers, lowercase characters, and/or uppercase characters
-//at least one of these must be chosen, if not, alert at least one must be chosen
-
-//after all of the prompts, random password with all chosen propertie must be displayed in text box
 
 
 
