@@ -25,9 +25,11 @@
 
 
 //establish variables
-const numbers = [0, 1, 2, 3, 4, 5, 6, 7 ,8 ,9]
+const num = [0, 1, 2, 3, 4, 5, 6, 7 ,8 ,9]
 const lowLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 const upLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+const values = [1, 2, 3, 4, 5, 6, 7 ,8 ,9, "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+
 
 
 // prompt user to choose length of password, between 8-128 characters once generate button is clicked
@@ -37,7 +39,8 @@ document.getElementById("generate").addEventListener("click", generatePassword);
 //write function here
 
 function generatePassword() {
-numChar = prompt("How many characters would you like your password to be? Must be between 8-128 characters.");
+    var pass = '';
+    numChar = prompt("How many characters would you like your password to be? Must be between 8-128 characters.");
     charLength = parseInt(numChar,10);
     if (charLength < 8 || charLength > 128){
         alert("The password length must be between 8-128 characters.");
@@ -52,28 +55,31 @@ numChar = prompt("How many characters would you like your password to be? Must b
     }
     for(i = 0; i <= charLength; i++){
         if (numericCharacters === true && lowerCaseCharacters === true && upperCaseCharacters === true){
-            // then randomly generate from all three
+            pass += values[Math.floor(Math.random() * values.length)];
         }
         if (numericCharacters === true && lowerCaseCharacters === true && upperCaseCharacters === false){
-            // then only from those two
+            let numLow = [...num,...lowLetters];
+            document.getElementById("password").textContent += numLow[Math.floor(Math.random() * numLow.length)];
         }
         if (numericCharacters === true && lowerCaseCharacters === false && upperCaseCharacters === false){
-            //only one
+            document.getElementById("password").textContent += num[Math.floor(Math.random() * num.length)];
         }
         if (numericCharacters === false && lowerCaseCharacters === true && upperCaseCharacters === true){
-            // those two
+            let lowUp = [...lowLetters, ...upLetters];
+            document.getElementById("password").textContent += lowUp[Math.floor(Math.random() * lowUp.length)];
         }
         if (numericCharacters === false && lowerCaseCharacters === false && upperCaseCharacters === true){
-            // only one
+            document.getElementById("password").textContent += upLetters[Math.floor(Math.random() * upLetters.length)];
         }
         if (numericCharacters === false && lowerCaseCharacters === true && upperCaseCharacters === false){
-            // only one
+            document.getElementById("password").textContent += lowLetters[Math.floor(Math.random() * lowLetters.length)];
         }
         if(numericCharacters === true && lowerCaseCharacters === false && upperCaseCharacters === true){
-            //only two
+            let numUp = [...num, ...upLetters];
+            document.getElementById("password").textContent += numUp[Math.floor(Math.random() * numUp.length)];
         }
-
-
+        console.log(document.getElementById("password").textContent += pass);
+        
     }
     
 }
