@@ -6,7 +6,7 @@
 * Password Generator 
 Given the template that was given, I added some quick styling to center the the box and set a box size. 
 
-![Alt text](/images/Screen Shot 2020-01-17 at 2.54.54 PM.png?raw=true)
+![Alt text](images/screenshot.png?raw=true)
 
 
 # Function 
