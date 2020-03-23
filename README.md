@@ -5,7 +5,7 @@
 
 Given the template that was given, I added some quick styling to center the the box and set a box size. 
 
-![Alt text](images/screenshot.png?raw=true)
+![Alt text](assets/images/screenshot.png?raw=true)
 
 
 # Function 
